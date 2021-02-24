@@ -101,7 +101,7 @@ io.on("connection", async function (socket) {
   socket.on("disconnect", () => {
     delete onlineUsers[socket.userId];
     io.emit(socketTypes.NOTIFICATION, {
-      onlineUsers: {},
+      onlineUsers: Object.keys(onlineUsers),
     });
   });
 });
