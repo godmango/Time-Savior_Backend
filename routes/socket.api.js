@@ -3,18 +3,14 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const { AppError } = require("../helpers/utils.helper");
 const GlobalMessage = require("../models/GlobalMessage");
-const Message = require("../models/Message");
 const User = require("../models/User");
-const Conversation = require("../models/Conversation");
 
 const socketTypes = {
   NOTIFICATION: "NOTIFICATION",
   GLOBAL_MSG_INIT: "GLOBAL_MESSAGE_INIT",
   GLOBAL_MSG_SEND: "GLOBAL_MSG_SEND",
   GLOBAL_MSG_RECEIVE: "GLOBAL_MSG_RECEIVE",
-  PRIVATE_MSG_INIT: "PRIVATE_MSG_INIT",
-  PRIVATE_MSG_SEND: "PRIVATE_MSG_SEND",
-  PRIVATE_MSG_RECEIVE: "PRIVATE_MSG_RECEIVE",
+
   ERROR: "ERROR",
 };
 

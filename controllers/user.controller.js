@@ -147,22 +147,9 @@ userController.getCurrentUser = catchAsync(async (req, res, next) => {
 });
 
 userController.getUsers = catchAsync(async (req, res, next) => {
-  let { page, limit, sortBy, ...filter } = req.query;
+  const users = await User.find();
 
-  const currentUserId = req.userId;
-  page = parseInt(page) || 1;
-  limit = parseInt(limit) || 10;
-
-  const totalNumUsers = await User.find({ ...filter }).countDocuments();
-  const totalPages = Math.ceil(totalNumUsers / limit);
-  const offset = limit * (page - 1);
-
-  const users = await User.find({ ...filter })
-    .sort({ ...sortBy, createdAt: -1 })
-    .skip(offset)
-    .limit(limit);
-
-  return sendResponse(res, 200, true, { users, totalPages }, null, "");
+  return sendResponse(res, 200, true, { users }, null, "");
 });
 
 userController.getConversationList = catchAsync(async (req, res, next) => {

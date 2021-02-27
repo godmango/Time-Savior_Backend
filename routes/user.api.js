@@ -12,29 +12,29 @@ router.get("/me", authentication.loginRequired, userController.getCurrentUser);
 
 /**
  * @route PATCH api/users/iframe/:id
- * @description Get current user info
- * @access Login required
+ * @description patch iframe info
+ * @access
  */
 router.patch("/iframe/:id", userController.patchIframe);
 
 /**
  * @route PATCH api/users/todo/:id
  * @description Patch todo
- * @access Login required
+ * @access
  */
 router.patch("/todo/:id", userController.patchTodo);
 
 /**
  * @route PATCH api/users/memo/:id
  * @description Patch memo
- * @access Login required
+ * @access
  */
 router.patch("/memo/:id", userController.patchMemo);
 
 /**
  * @route GET api/users
  * @description Get list of all users
- * @access Login required
+ * @access
  */
 router.get("/", userController.getUsers);
 
